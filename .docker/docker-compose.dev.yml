@@ -1,0 +1,18 @@
+services:
+  workspace:
+    image: codename-hoge/workspace
+    container_name: codename-hoge.workspace
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./.docker/Dockerfile
+      target: workspace
+    working_dir: /codename-hoge
+    environment:
+      HOST_ROOT: ${PWD}
+    env_file:
+      - ../.env
+    volumes:
+      - ..:/codename-hoge:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: sleep infinity

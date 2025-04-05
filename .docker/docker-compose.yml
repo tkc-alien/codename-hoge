@@ -1,0 +1,49 @@
+services:
+  api:
+    image: codename-hoge/api
+    container_name: codename-hoge.api
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./.docker/Dockerfile
+      target: api
+    working_dir: /api
+    tty: true
+    volumes:
+      - ../api/:/api
+
+  app:
+    image: codename-hoge/app
+    container_name: codename-hoge.app
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./.docker/Dockerfile
+      target: app
+    working_dir: /app
+    tty: true
+    volumes:
+      - ../app/:/app
+
+  db:
+    image: codename-hoge/db
+    container_name: codename-hoge.db
+    platform: linux/amd64
+    build:
+      context: ../
+      dockerfile: ./.docker/Dockerfile
+      target: db
+    working_dir: /db
+    tty: true
+    volumes:
+      - db-store:/var/lib/postgresql/data
+      - ../db/init:/docker-entrypoint-initdb.d
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      POSTGRES_DB: codename-hoge
+      POSTGRES_USER: ${DB_USER_NAME}
+      POSTGRES_PASSWORD: ${DB_USER_PASS}
+
+volumes:
+  db-store:

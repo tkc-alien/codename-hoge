@@ -1,0 +1,31 @@
+{
+  "name": "codename-hoge",
+  "service": "workspace",
+  "runServices": ["api", "app", "db"],
+  "workspaceFolder": "/codename-hoge",
+  "mounts": ["source=${localWorkspaceFolder},target=/codename-hoge,type=bind"],
+  "remoteUser": "root",
+
+  "dockerComposeFile": [
+    "../.docker/docker-compose.yml", // 本体
+    "../.docker/docker-compose.dev.yml" // 開発環境用
+  ],
+
+  "customizations": {
+    "vscode": {
+      /* spell-checker:disable */
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one",
+        "nefrob.vscode-just-syntax",
+        "shardulm94.trailing-spaces",
+        "streetsidesoftware.code-spell-checker",
+        "wayou.vscode-todo-highlight",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ReneSaarsoo.sql-formatter-vsc",
+        "Dart-Code.flutter"
+      ]
+    }
+  }
+}

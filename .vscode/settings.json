@@ -1,0 +1,28 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+
+  // app
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.codeActionsOnSave": {
+      "quickfix.insertSemicolon": "always"
+    }
+  },
+
+  "cSpell.words": [
+    "dearmor",
+    "devcontainers",
+    "dotenv",
+    "dpkg",
+    "fvmrc",
+    "hoge",
+    "initdb",
+    "jdbc",
+    "keyrings",
+    "libexec",
+    "localedef",
+    "plpgsql"
+  ]
+}
